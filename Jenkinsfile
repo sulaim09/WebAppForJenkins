@@ -7,12 +7,12 @@ pipeline {
         stage('Clean and Install') {
             steps {
                 // install
-               bat 'mvn clean install'
+               sh 'mvn clean install'
             }
         }
         stage('Package') {
             steps {
-               bat 'mvn package'
+               sh 'mvn package'
             }
         } 
     }
