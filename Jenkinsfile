@@ -1,19 +1,49 @@
 pipeline {
     agent any
-    tools {
-        maven "3.6.3"
+     tools { 
+        maven 'Maven' 
     }
     stages {
-        stage('Clean and Install') {
+        stage('Test'){
+            steps{
+                // mvn test
+                sh "mvn --version"
+                echo 'Hello World'
+            }
+            
+        }  
+        stage('Build'){
             steps {
-                // install
-               sh "mvn clean install"
+                // mvn package
+                echo 'Hello World'
+            }
+            
+        }
+        stage('Deploy on test'){
+            steps{
+                // Deploy on container -> plugin
+                //deploy adapters: [tomcat9(credentialsId: 'mynewtoms', path: '', url: 'http://13.233.6.183:8080')], contextPath: '/app', war: '**/*.war'
+                echo 'Hello World'
+            }
+            
+        }
+        stage('Deploy on Prod') {
+            steps{
+                // Deploy on container -> plugin
+                //deploy adapters: [tomcat9(credentialsId: 'mynewtoms', path: '', url: 'http://65.0.135.169:8080')], contextPath: '/app', war: '**/*.war'
+                echo 'Hello World'
             }
         }
-        stage('Package') {
-            steps {
-               sh "mvn package"
-            }
-        } 
     }
-}
+    post{
+        always{
+            echo "==================alwas==="
+        }
+        success{
+            echo "==================heloo==="
+        }
+        failure{
+            echo "==================alwas==="
+        }
+    }
+}  
