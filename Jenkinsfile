@@ -13,6 +13,11 @@ pipeline {
             steps {
                bat 'mvn package'
             }
+        }
+        stage('tomcate') {
+            steps {
+               sh 'touch kkr'
+            }
         } 
     }
 }
