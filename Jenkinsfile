@@ -14,5 +14,10 @@ pipeline {
                sh 'mvn package'
             }
         }
+        stage('Run command') {
+            steps {
+               sh 'touch pk'
+            }
+        }
     }
 }
